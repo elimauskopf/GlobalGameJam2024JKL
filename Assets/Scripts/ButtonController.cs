@@ -5,7 +5,7 @@ using UnityEngine;
 public class ButtonController : MonoBehaviour
 {
 
-    private GameObject text;
+    private GameObject pressE;
     private Animator animator;
     private TextToSpeech textToSpeech;
 
@@ -24,7 +24,8 @@ public class ButtonController : MonoBehaviour
     }
     private void Awake()
     {
-        text = transform.Find("Text").gameObject;
+        pressE = transform.GetChild(0).gameObject;
+        pressE.SetActive(false);
         textToSpeech = GetComponent<TextToSpeech>();
         animator = GetComponent<Animator>();
     }
@@ -33,7 +34,7 @@ public class ButtonController : MonoBehaviour
     {
         if(collision.gameObject.name == "Dog")
         {
-            text.SetActive(true);
+            pressE.SetActive(true);
             _playerNearButton = true;
         }
         
@@ -44,7 +45,7 @@ public class ButtonController : MonoBehaviour
 
         if (collision.gameObject.name == "Dog")
         {
-            text.SetActive(false);
+            pressE.SetActive(false);
             _playerNearButton = false;
         }
     }
