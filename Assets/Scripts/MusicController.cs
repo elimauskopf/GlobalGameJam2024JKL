@@ -6,6 +6,8 @@ public class MusicController : MonoBehaviour
 {
     public static MusicController Instance { get; private set; }
 
+    AudioSource _musicSource;
+
     private void Awake()
     {
         if(Instance == null)
@@ -17,5 +19,7 @@ public class MusicController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        _musicSource = GetComponent<AudioSource>();
     }
 }

@@ -12,7 +12,7 @@ public class PauseMenu : MonoBehaviour
     private void Awake()
     {
         _main = transform.GetChild(0).gameObject;
-        _volumeSlider = _main.transform.GetChild(2).GetComponent<Slider>();
+        _volumeSlider = _main.transform.Find("VolumeSlider").GetComponent<Slider>();
     }
     private void Start()
     {
@@ -20,6 +20,20 @@ public class PauseMenu : MonoBehaviour
         _main.SetActive(false);
     }
 
+    public void PauseGame()
+    {
+        Debug.Log("Pause button pressed");
+        if(_main.activeSelf)
+        {
+            Debug.Log("Enabling menu");
+            _main.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("Enabling menu");
+            _main.SetActive(true);
+        }
+    }
     public void ResumeGame()
     {
         _main.SetActive(false);
