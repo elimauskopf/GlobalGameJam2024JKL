@@ -5,19 +5,27 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class HomeScreen : MonoBehaviour
 {
+    public GameObject inputCanvas;
+
     GameObject _tutorial;
+    GameObject _startScreen;
     Animator _closeTutorialButton;
     // Start is called before the first frame update
     void Awake()
     {
+        _startScreen = transform.GetChild(0).gameObject;
         _tutorial = transform.Find("Tutorial").gameObject;
         _closeTutorialButton = _tutorial.transform.GetChild(0).GetComponent<Animator>();
         _tutorial.SetActive(false);
+
+        inputCanvas.SetActive(false);
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Main");
+        //SceneManager.LoadScene("Main");
+        inputCanvas.SetActive(true);
+        _startScreen.SetActive(false);
     }
     public void OpenTutorial()
     {
