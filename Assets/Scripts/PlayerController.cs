@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D _rigidBody;
     AudioSource _dogSounds;
     AudioSource _buttSounds;
+    Animator _animator;
 
     Vector2 _lookRight = new Vector2(1, 1);
     Vector2 _lookLeft = new Vector2(-1, 1);
@@ -23,16 +24,20 @@ public class PlayerController : MonoBehaviour
     public delegate void PlayerAction();
     public static event PlayerAction OnPlayerPressButton;
 
+    bool _isMoving;
+
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
         _dogSounds = GetComponent<AudioSource>();
         _buttSounds = transform.GetChild(0).GetComponent<AudioSource>();
+        _animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
     {
         _rigidBody.velocity = new Vector2(_moveDirection.x * speed, _moveDirection.y * speed);
+        UpdateAnimation();
     }
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -64,7 +69,18 @@ public class PlayerController : MonoBehaviour
             Instantiate(poop, buttPosition.position, Quaternion.identity);
             _buttSounds.Play();
         }
-        
+    }
+
+    void UpdateAnimation()
+    {
+        if(_rigidBody.velocity.magnitude > 0.1)
+        {
+            _animator.SetBool("Moving", true);
+        }
+        else
+        {
+            _animator.SetBool("Moving", false);
+        }
     }
 
     
