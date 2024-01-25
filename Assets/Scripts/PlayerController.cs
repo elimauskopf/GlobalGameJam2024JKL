@@ -13,13 +13,21 @@ public class PlayerController : MonoBehaviour
     Vector2 _lookRight = new Vector2(1, 1);
     Vector2 _lookLeft = new Vector2(-1, 1);
 
+    public delegate void PlayerAction();
+    public static event PlayerAction OnPlayerPressButton;
+
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
     }
+
+    private void FixedUpdate()
+    {
+        _rigidBody.velocity = new Vector2(_moveDirection.x * speed, _moveDirection.y * speed);
+    }
     public void OnMove(InputAction.CallbackContext context)
     {
-        Debug.Log("Registering on move, direction = " + context.ReadValue<Vector2>());
+        //Debug.Log("Registering on move, direction = " + context.ReadValue<Vector2>());
         _moveDirection = context.ReadValue<Vector2>();
         if (_moveDirection.x < 0)
         {
@@ -31,8 +39,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    // When player press E invoke button pressed event
+    public void OnInteract(InputAction.CallbackContext context)
     {
-        _rigidBody.velocity = new Vector2(_moveDirection.x * speed, _moveDirection.y * speed);
+        if (context.performed) OnPlayerPressButton?.Invoke();
+
     }
+
+    
+
+
 }

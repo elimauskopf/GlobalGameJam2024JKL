@@ -10,8 +10,11 @@ public class TextToSpeech : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S))
+              
+    }
 
-            voice.Speak("FUCK YOU ELI", SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
+    public void ReadText(string s)
+    {
+        voice.Speak(s, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
     }
 }
