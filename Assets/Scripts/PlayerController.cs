@@ -7,9 +7,15 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     public bool canPlayerMove = false;
+    public GameObject poop;
+    public Transform buttPosition;
+    public AudioClip fart;
+    public AudioClip walk;
 
     Vector2 _moveDirection;
     Rigidbody2D _rigidBody;
+    AudioSource _dogSounds;
+    AudioSource _buttSounds;
 
     Vector2 _lookRight = new Vector2(1, 1);
     Vector2 _lookLeft = new Vector2(-1, 1);
@@ -20,6 +26,8 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
+        _dogSounds = GetComponent<AudioSource>();
+        _buttSounds = transform.GetChild(0).GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -47,6 +55,16 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed) OnPlayerPressButton?.Invoke();
 
+    }
+
+    public void OnSpace(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            Instantiate(poop, buttPosition.position, Quaternion.identity);
+            _buttSounds.Play();
+        }
+        
     }
 
     
