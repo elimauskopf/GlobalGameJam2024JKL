@@ -32,8 +32,31 @@ public class FormToButtons : MonoBehaviour
 
     public void GenerateWords()
     {
+        string[] words = _inputText.Split(' ');
+        Shuffle(words);
+
+        
+
+        CloseForm();
+
+        
+    }
+
+    void Shuffle(string[] s)
+    {
+        for (int i = 0; i < s.Length; i++)
+        {
+            string temp = s[i];
+            int random = Random.Range(i, s.Length);
+            s[i] = s[random];
+            s[random] = temp;
+        }
+    }
+
+    void CloseForm()
+    {
         thoughtCanvas.SetActive(false);
         playerController.canPlayerMove = true;
-        print(_inputText);
+        
     }
 }
