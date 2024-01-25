@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  canPlayerMove: 0
 --- !u!50 &3841511360918444559
 Rigidbody2D:
   serializedVersion: 4
@@ -241,7 +242,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!70 &4410485020292808999
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
