@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
+    public bool canPlayerMove = false;
 
     Vector2 _moveDirection;
     Rigidbody2D _rigidBody;
@@ -27,6 +28,8 @@ public class PlayerController : MonoBehaviour
     }
     public void OnMove(InputAction.CallbackContext context)
     {
+        if (!canPlayerMove) return;
+
         //Debug.Log("Registering on move, direction = " + context.ReadValue<Vector2>());
         _moveDirection = context.ReadValue<Vector2>();
         if (_moveDirection.x < 0)
