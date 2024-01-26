@@ -8,14 +8,16 @@ using UnityEngine.UI;
 
 public class FormToButtons : MonoBehaviour
 {
-    private GameObject thoughtCanvas;
+    public GameObject thoughtCanvas;
     public TMP_InputField inputField;
     private PlayerController playerController;
     private Transform buttonsParent;
+    public GameObject speechBubble;
 
     private string _inputText;
     private int _formCounter;
     private int _buttonIndex;
+    private int categoryLength = 5;
 
     public string inputPhraseOne;
     public string inputPhraseTwo;
@@ -25,7 +27,8 @@ public class FormToButtons : MonoBehaviour
 
     private void Awake()
     {
-        thoughtCanvas = GameObject.Find("DogThoughtCanvas");
+        //thoughtCanvas = GameObject.Find("DogThoughtCanvas");
+        print(thoughtCanvas);
         //inputField = thoughtCanvas.transform.Find("InputField").GetComponent<TMP_InputField>();
         playerController = GameObject.Find("Dog").GetComponent<PlayerController>();
         buttonsParent = GameObject.Find("Buttons").transform;
@@ -33,13 +36,13 @@ public class FormToButtons : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void AddToInputText(string s)
@@ -49,39 +52,48 @@ public class FormToButtons : MonoBehaviour
 
     public void GenerateWords()
     {
+
+        _inputText = _inputText.Trim(); // remove leading and trailing whitespace
         string[] words = _inputText.Split(' ');
 
-       /* if (words.Length > buttonsParent.childCount)
+        if (words.Length != categoryLength) // If word input not right, rest form tell player
         {
-            Array.Resize(ref words, buttonsParent.childCount);
-        }*/
+            inputField.textComponent.text = "";
+            inputField.text = "Please enter " + categoryLength + " words seperated by a space";
+            _inputText = "";
+            return;
+        }
 
+      
         Shuffle(words);
 
         PopulateButtons(words);
-        
+
         _formCounter++;
 
-        if (_formCounter == 1)
+        if (_formCounter == 1) // Adjectives
         {
-            
+            //categoryLength = 5;
             inputField.textComponent.text = "";
             inputField.text = inputPhraseTwo;
             _inputText = "";
 
-        } else if (_formCounter == 2)
+        }
+        else if (_formCounter == 2) // VERBS
         {
+            //categoryLength = 4;
             inputField.textComponent.text = "";
             inputField.text = inputPhraseThree;
             _inputText = "";
 
-        } else
+        }
+        else
         {
             CloseForm();
         }
-       
 
-        
+
+
     }
 
     void Shuffle(string[] s)
@@ -95,52 +107,21 @@ public class FormToButtons : MonoBehaviour
         }
     }
 
-    // Populate buttons with word list, add filler if phrase too short
+    // Populate buttons with word list
     void PopulateButtons(string[] words)
-    {
-        int j = 0;
-        int categoryLength;
-
-        if (_formCounter == 0 || _formCounter == 1) // nouns, adjectives
+    { 
+        foreach (string word in words)
         {
-            categoryLength = 5;
-        }  else // Verbs
-        {
-            categoryLength = 4;
+            buttonsParent.GetChild(_buttonIndex).GetComponent<ButtonController>().word = word;        
+            _buttonIndex++;
         }
-
-        print(_buttonIndex);
-        for(int i = 0; i < words.Length; i++) 
-        {
-            if (i < categoryLength)
-            {
-                buttonsParent.GetChild(i + _buttonIndex).GetComponent<ButtonController>().word = words[i];
-                j++;
-
-                if (i >= 1) _buttonIndex++;
-
-            }
-            
-        }
-
-        
-        if (j < categoryLength - 1)
-        {
-            for (int y = j; y < categoryLength; y++)
-            {
-             
-                buttonsParent.GetChild(y + _buttonIndex).GetComponent<ButtonController>().word = "HUNGRY"; //  <--  FILLER WORDS GO HERE
-                _buttonIndex++;
-            }
-        }
-
-    
     }
 
     void CloseForm()
     {
         thoughtCanvas.SetActive(false);
+        speechBubble.SetActive(true);  // SET SPEECH BUBBLE TEXT HERE
         playerController.canPlayerMove = true;
-        
+
     }
 }
