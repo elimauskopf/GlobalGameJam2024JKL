@@ -1341,7 +1341,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 68c4be8a0217c0244a430f733ec8b5a6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1679,8 +1679,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -7.0528, y: -3.5863001, z: 0}
-    m_Extent: {x: 7.7001, y: 4.2014003, z: 0}
+    m_Center: {x: -7.0477, y: -3.5927, z: 0}
+    m_Extent: {x: 7.6923, y: 4.1972, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -9484,6 +9484,14 @@ PrefabInstance:
       propertyPath: canPlayerMove
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1405693997195565663, guid: 01af1ca6ca531aa4a86f9e55ff659a9e, type: 3}
+      propertyPath: inputTextBubble
+      value: 
+      objectReference: {fileID: 1891555722}
+    - target: {fileID: 1405693997195565663, guid: 01af1ca6ca531aa4a86f9e55ff659a9e, type: 3}
+      propertyPath: inputTextObject
+      value: 
+      objectReference: {fileID: 1891555722}
     - target: {fileID: 4095204605649578895, guid: 01af1ca6ca531aa4a86f9e55ff659a9e, type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 16
@@ -10274,8 +10282,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -7.9055, y: -4.7574, z: 0}
-    m_Extent: {x: 8.5480995, y: 5.3621, z: 0}
+    m_Center: {x: -7.9110494, y: -4.74615, z: 0}
+    m_Extent: {x: 8.549649, y: 5.36425, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -10359,8 +10367,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -5.4962, y: -4.0372, z: 0}
-    m_Extent: {x: 6.1398997, y: 4.6427, z: 0}
+    m_Center: {x: -5.4955497, y: -4.0334496, z: 0}
+    m_Extent: {x: 6.14245, y: 4.65105, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

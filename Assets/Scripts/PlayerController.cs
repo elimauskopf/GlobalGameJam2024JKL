@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     public AudioClip fart;
     public AudioClip walk;
 
+    [SerializeField]
+    GameObject inputTextObject;
+
     Vector2 _moveDirection;
     Rigidbody2D _rigidBody;
     AudioSource _dogSounds;
@@ -59,6 +62,11 @@ public class PlayerController : MonoBehaviour
     {
         _idleTimer = 0;
         if (!canPlayerMove) return;
+        if (inputTextObject.activeSelf)
+        {
+            _moveDirection = Vector2.zero;
+            return;
+        }
 
         //Debug.Log("Registering on move, direction = " + context.ReadValue<Vector2>());
         _moveDirection = context.ReadValue<Vector2>();
@@ -87,6 +95,10 @@ public class PlayerController : MonoBehaviour
 
     public void OnSpace(InputAction.CallbackContext context)
     {
+        if(inputTextObject.activeSelf)
+        {
+            return;
+        }
         _idleTimer = 0;
         if(context.performed)
         {
