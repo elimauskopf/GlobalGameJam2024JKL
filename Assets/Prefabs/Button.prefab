@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d94d857be92464f954bbe7fddc2720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  responseText: {fileID: 0}
   word: Hungry
 --- !u!114 &7068755933178353613
 MonoBehaviour:
@@ -167,8 +168,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0042336616, y: -0.021168144}
-  m_Size: {x: 0.56773853, y: 0.33065602}
+  m_Offset: {x: -0.0071179913, y: -0.032705847}
+  m_Size: {x: 0.6311967, y: 0.3883456}
   m_Direction: 1
 --- !u!1 &2480127332756064401
 GameObject:

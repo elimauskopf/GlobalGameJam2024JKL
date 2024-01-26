@@ -23,7 +23,6 @@ public class HomeScreen : MonoBehaviour
 
     public void StartGame()
     {
-        //SceneManager.LoadScene("Main");
         inputCanvas.SetActive(true);
         _startScreen.SetActive(false);
     }

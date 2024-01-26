@@ -63,5 +63,4 @@ public class ButtonController : MonoBehaviour
 
         responseText.text += (word + " ");
     }
-
 }

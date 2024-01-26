@@ -89,8 +89,6 @@ public class PlayerController : MonoBehaviour
             OnPlayerPressButton?.Invoke();
             _animator.SetTrigger("Interact");
         }
-        
-
     }
 
     public void OnSpace(InputAction.CallbackContext context)
