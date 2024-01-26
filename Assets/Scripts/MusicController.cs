@@ -6,6 +6,8 @@ public class MusicController : MonoBehaviour
 {
     public static MusicController Instance { get; private set; }
 
+    public float maxVolume;
+
     AudioSource _musicSource;
 
     private void Awake()
@@ -21,5 +23,10 @@ public class MusicController : MonoBehaviour
         }
 
         _musicSource = GetComponent<AudioSource>();
+    }
+    public void ChangeMusicVolume(float percent)
+    {
+        float volume = percent * maxVolume;
+        _musicSource.volume = volume;
     }
 }

@@ -8,15 +8,18 @@ public class PauseMenu : MonoBehaviour
 {
     GameObject _main;
     Slider _volumeSlider;
+    Slider _musicSlider;
 
     private void Awake()
     {
         _main = transform.GetChild(0).gameObject;
         _volumeSlider = _main.transform.Find("VolumeSlider").GetComponent<Slider>();
+        _musicSlider = _main.transform.Find("MusicVolume").GetComponent<Slider>();
     }
     private void Start()
     {
         _volumeSlider.value = AudioListener.volume;
+        _musicSlider.value = 1;
         _main.SetActive(false);
     }
 
@@ -45,5 +48,9 @@ public class PauseMenu : MonoBehaviour
     public void ChangeVolume()
     {
         AudioListener.volume = _volumeSlider.value;
+    }
+    public void ChangeMusicVolume()
+    {
+        MusicController.Instance.ChangeMusicVolume(_musicSlider.value);
     }
 }
