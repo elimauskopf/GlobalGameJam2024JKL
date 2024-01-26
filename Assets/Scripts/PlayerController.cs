@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
 
     bool _isMoving;
     int _currentFoodValue;
+    float _idleTimer;
+    float _timeUntilStand = 13;
 
     private void Awake()
     {
@@ -44,15 +46,18 @@ public class PlayerController : MonoBehaviour
         _dogSounds = GetComponent<AudioSource>();
         _buttSounds = transform.GetChild(0).GetComponent<AudioSource>();
         _animator = GetComponent<Animator>();
+        _idleTimer = 0;
     }
 
     private void FixedUpdate()
     {
         _rigidBody.velocity = new Vector2(_moveDirection.x * speed, _moveDirection.y * speed);
+        _idleTimer += Time.fixedDeltaTime;
         UpdateAnimation();
     }
     public void OnMove(InputAction.CallbackContext context)
     {
+        _idleTimer = 0;
         if (!canPlayerMove) return;
 
         //Debug.Log("Registering on move, direction = " + context.ReadValue<Vector2>());
@@ -70,15 +75,23 @@ public class PlayerController : MonoBehaviour
     // When player press E invoke button pressed event
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.performed) OnPlayerPressButton?.Invoke();
+        _idleTimer = 0;
+        if (context.performed) 
+        {
+            OnPlayerPressButton?.Invoke();
+            _animator.SetTrigger("Interact");
+        }
+        
 
     }
 
     public void OnSpace(InputAction.CallbackContext context)
     {
+        _idleTimer = 0;
         if(context.performed)
         {
             Instantiate(poop, buttPosition.position, Quaternion.identity);
+            _animator.SetTrigger("Poop");
             _buttSounds.Play();
         }
     }
@@ -94,6 +107,12 @@ public class PlayerController : MonoBehaviour
         {
             _animator.SetBool("Moving", false);
             _isMoving = false;
+        }
+
+        if(_idleTimer > _timeUntilStand)
+        {
+            StandUp();
+            _idleTimer = 0;
         }
         AssignWalkingAudio();
     }
@@ -112,10 +131,16 @@ public class PlayerController : MonoBehaviour
 
     public void EatFood()
     {
+        _idleTimer = 0;
         if(_currentFoodValue >= foodUntilPoop)
         {
             return;
         }
         _currentFoodValue += 1;     
+    }
+
+    void StandUp()
+    {
+        _animator.SetTrigger("Stand");
     }
 }
