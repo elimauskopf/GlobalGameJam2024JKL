@@ -6,25 +6,32 @@ using UnityEngine.UI;
 public class HomeScreen : MonoBehaviour
 {
     public GameObject inputCanvas;
+    public GameObject _actionButtonsParent;
 
     GameObject _tutorial;
     GameObject _startScreen;
+    GameObject _credits;
     Animator _closeTutorialButton;
     // Start is called before the first frame update
     void Awake()
     {
         _startScreen = transform.GetChild(0).gameObject;
         _tutorial = transform.Find("Tutorial").gameObject;
+        _credits = transform.Find("Credits").gameObject;
         _closeTutorialButton = _tutorial.transform.GetChild(0).GetComponent<Animator>();
         _tutorial.SetActive(false);
+        _credits.SetActive(false);
+        _actionButtonsParent.SetActive(false);
 
         inputCanvas.SetActive(false);
     }
 
     public void StartGame()
     {
-        inputCanvas.SetActive(true);
+        //inputCanvas.SetActive(true);
+        FormToButtons.Instance.ResetForm();
         _startScreen.SetActive(false);
+        //_actionButtonsParent.SetActive(true);
     }
     public void OpenTutorial()
     {
@@ -34,12 +41,15 @@ public class HomeScreen : MonoBehaviour
     public void CloseTutorial()
     {
         _closeTutorialButton.SetTrigger("Press");
-        StartCoroutine(WaitToClose());
+        _tutorial.SetActive(false);
     }
 
-    IEnumerator WaitToClose()
+    public void OpenCredits()
     {
-        yield return new WaitForSeconds(0.3f);
-        _tutorial.SetActive(false);
+        _credits.SetActive(true);
+    }
+    public void CloseCredits()
+    {
+        _credits.SetActive(false);
     }
 }

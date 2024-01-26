@@ -43,7 +43,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void ExitGame()
     {
-        SceneManager.LoadScene("Home");
+        Application.Quit();
     }
     public void ChangeVolume()
     {
