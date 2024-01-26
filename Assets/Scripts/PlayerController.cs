@@ -76,14 +76,25 @@ public class PlayerController : MonoBehaviour
         if(_rigidBody.velocity.magnitude > 0.1)
         {
             _animator.SetBool("Moving", true);
+            _isMoving = true;
         }
         else
         {
             _animator.SetBool("Moving", false);
+            _isMoving = false;
         }
+        AssignWalkingAudio();
     }
 
-    
-
-
+    void AssignWalkingAudio()
+    {
+        if(_isMoving && !_dogSounds.isPlaying)
+        {
+            _dogSounds.Play();
+        }
+        else if(!_isMoving && _dogSounds.isPlaying)
+        {
+            _dogSounds.Pause();
+        }
+    }
 }
