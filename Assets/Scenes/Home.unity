@@ -1665,8 +1665,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -7.0562997, y: -3.5865002, z: 0}
-    m_Extent: {x: 7.6913, y: 4.2047, z: 0}
+    m_Center: {x: -7.059, y: -3.5864, z: 0}
+    m_Extent: {x: 7.6941004, y: 4.1969, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -10545,8 +10545,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -7.9098496, y: -4.74625, z: 0}
-    m_Extent: {x: 8.5554495, y: 5.3695498, z: 0}
+    m_Center: {x: -7.9152994, y: -4.7536, z: 0}
+    m_Extent: {x: 8.5505, y: 5.3735, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -10630,8 +10630,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -5.48735, y: -4.02765, z: 0}
-    m_Extent: {x: 6.13685, y: 4.64985, z: 0}
+    m_Center: {x: -5.49575, y: -4.035, z: 0}
+    m_Extent: {x: 6.14055, y: 4.6533003, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -10827,16 +10827,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1891555722}
     - target: {fileID: 9175518961390893125, guid: 4a78fce7b7f0d35478e293596a45f6a7, type: 3}
-      propertyPath: inputPhraseOne
-      value: Enter 5 nouns...
-      objectReference: {fileID: 0}
-    - target: {fileID: 9175518961390893125, guid: 4a78fce7b7f0d35478e293596a45f6a7, type: 3}
-      propertyPath: inputPhraseTwo
-      value: Enter 5 adjectives...
-      objectReference: {fileID: 0}
-    - target: {fileID: 9175518961390893125, guid: 4a78fce7b7f0d35478e293596a45f6a7, type: 3}
       propertyPath: inputPhraseThree
-      value: Enter 4 verbs...
+      value: Enter 5 verbs...
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
