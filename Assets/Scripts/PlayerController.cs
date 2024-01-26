@@ -5,7 +5,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance { get; private set; }
     public float speed;
+    public int foodUntilPoop;
     public bool canPlayerMove = false;
     public GameObject poop;
     public Transform buttPosition;
@@ -25,9 +27,19 @@ public class PlayerController : MonoBehaviour
     public static event PlayerAction OnPlayerPressButton;
 
     bool _isMoving;
+    int _currentFoodValue;
 
     private void Awake()
     {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         _rigidBody = GetComponent<Rigidbody2D>();
         _dogSounds = GetComponent<AudioSource>();
         _buttSounds = transform.GetChild(0).GetComponent<AudioSource>();
@@ -96,5 +108,14 @@ public class PlayerController : MonoBehaviour
         {
             _dogSounds.Pause();
         }
+    }
+
+    public void EatFood()
+    {
+        if(_currentFoodValue >= foodUntilPoop)
+        {
+            return;
+        }
+        _currentFoodValue += 1;     
     }
 }
