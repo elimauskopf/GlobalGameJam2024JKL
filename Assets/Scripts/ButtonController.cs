@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour
 {
-
     private GameObject pressE;
     private Animator animator;
     private TextToSpeech textToSpeech;

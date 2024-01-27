@@ -83,7 +83,13 @@ public class PlayerController : MonoBehaviour
     // When player press E invoke button pressed event
     public void OnInteract(InputAction.CallbackContext context)
     {
+        if (inputTextObject.activeSelf)
+        {
+            return;
+        }
+
         _idleTimer = 0;
+       
         if (context.performed) 
         {
             OnPlayerPressButton?.Invoke();
