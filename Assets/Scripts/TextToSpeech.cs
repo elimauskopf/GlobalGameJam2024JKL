@@ -10,12 +10,13 @@ public class TextToSpeech : MonoBehaviour
 
     private void Start()
     {
-        voice.Voice = voice.GetVoices("gender=female").Item(0);
+        SpVoice voice = new SpVoice();
+        //voice.Voice = voice.GetVoices("gender=female").Item(0);
     }
 
     public void ReadText(string s)
     {
-        voice.Skip("Sentence", 5);
+        //voice.Skip("Sentence", 5);
         voice.Speak(s, SpeechVoiceSpeakFlags.SVSFlagsAsync | SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak);
     }
 }
