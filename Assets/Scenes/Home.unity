@@ -2484,8 +2484,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -7.04955, y: -3.5903, z: 0}
-    m_Extent: {x: 7.69335, y: 4.2055, z: 0}
+    m_Center: {x: -7.0571003, y: -3.5889502, z: 0}
+    m_Extent: {x: 7.6951, y: 4.20575, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -4084,8 +4084,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 328, y: 173}
-  m_SizeDelta: {x: 94.8, y: 90.2}
+  m_AnchoredPosition: {x: 272.2, y: 139.1}
+  m_SizeDelta: {x: 80.18, y: 79.42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &988619714
 Animator:
@@ -5729,9 +5729,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -12551,8 +12551,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -7.9091997, y: -4.7523503, z: 0}
-    m_Extent: {x: 8.5524, y: 5.36105, z: 0}
+    m_Center: {x: -7.90805, y: -4.7503004, z: 0}
+    m_Extent: {x: 8.55275, y: 5.3673, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -12636,8 +12636,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -5.4983, y: -4.0332003, z: 0}
-    m_Extent: {x: 6.1351, y: 4.6467, z: 0}
+    m_Center: {x: -5.50245, y: -4.03425, z: 0}
+    m_Extent: {x: 6.13575, y: 4.64595, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
