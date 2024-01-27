@@ -31,7 +31,7 @@ public class HomeScreen : MonoBehaviour
         //inputCanvas.SetActive(true);
         FormToButtons.Instance.ResetForm();
         _startScreen.SetActive(false);
-        //_actionButtonsParent.SetActive(true);
+        _actionButtonsParent.SetActive(true);
     }
     public void OpenTutorial()
     {
