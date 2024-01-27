@@ -104,6 +104,7 @@ public class FormToButtons : MonoBehaviour
         }
         else
         {
+            allWordList.Add("Bunny");
             Shuffle(allWordList);
             PopulateButtons(allWordList);
             CloseForm();
