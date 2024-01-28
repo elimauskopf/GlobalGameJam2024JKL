@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using static UnityEngine.Rendering.DebugUI;
+
 public class ActionButton : MonoBehaviour
 {
     public bool resetButton;
     public bool finishButton;
     public bool newWordsButton;
+    public TMP_Text speechBubbleText;
     private TextToSpeech textToSpeech;
+
+    private bool _isHumanResponding;
+    float humanReponseTime = 2;
 
     [SerializeField]
     GameObject inputTextObject;
@@ -78,14 +84,31 @@ public class ActionButton : MonoBehaviour
         responseText.text = "";
     }
 
+    IEnumerator HumanResponse()
+    {
+        
+        print("RESPONDING");
+        _isHumanResponding = true;
+        string oldText = speechBubbleText.text;
+        speechBubbleText.text = "Nice one Bunny";
+
+        yield return new WaitForSeconds(humanReponseTime);
+
+        speechBubbleText.text = oldText;
+        _isHumanResponding = false;
+
+
+    }
+
     public void FinishInput()
     {
-        if(textToSpeech != null)
+        if(textToSpeech != null && !_isHumanResponding)
         {
             textToSpeech.ReadText(responseText.text);
         }
-        //wait until done reading
-        //human responds
+
+        if (!_isHumanResponding) StartCoroutine(HumanResponse());
+
         //new day
         //move on to new prompt
     }

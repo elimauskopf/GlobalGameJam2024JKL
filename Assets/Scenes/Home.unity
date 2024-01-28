@@ -784,6 +784,7 @@ MonoBehaviour:
   resetButton: 1
   finishButton: 0
   newWordsButton: 0
+  speechBubbleText: {fileID: 693688106}
   inputTextObject: {fileID: 1891555722}
 --- !u!210 &155242506
 SortingGroup:
@@ -2485,8 +2486,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -7.05995, y: -3.58455, z: 0}
-    m_Extent: {x: 7.6932497, y: 4.19955, z: 0}
+    m_Center: {x: -7.0570498, y: -3.589, z: 0}
+    m_Extent: {x: 7.68935, y: 4.1963, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -3679,6 +3680,7 @@ MonoBehaviour:
   resetButton: 0
   finishButton: 0
   newWordsButton: 1
+  speechBubbleText: {fileID: 693688106}
   inputTextObject: {fileID: 1891555722}
 --- !u!210 &835689503
 SortingGroup:
@@ -4927,6 +4929,7 @@ MonoBehaviour:
   resetButton: 0
   finishButton: 1
   newWordsButton: 0
+  speechBubbleText: {fileID: 693688106}
   inputTextObject: {fileID: 0}
 --- !u!210 &1159941919
 SortingGroup:
@@ -12882,8 +12885,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -7.90895, y: -4.75275, z: 0}
-    m_Extent: {x: 8.55005, y: 5.35825, z: 0}
+    m_Center: {x: -7.9070005, y: -4.7593, z: 0}
+    m_Extent: {x: 8.5486, y: 5.3698997, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -12967,8 +12970,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -5.49785, y: -4.0337, z: 0}
-    m_Extent: {x: 6.14055, y: 4.6525, z: 0}
+    m_Center: {x: -5.4939, y: -4.0374503, z: 0}
+    m_Extent: {x: 6.1431003, y: 4.65175, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -13163,6 +13166,10 @@ PrefabInstance:
       propertyPath: thoughtCanvas
       value: 
       objectReference: {fileID: 1891555722}
+    - target: {fileID: 9175518961390893125, guid: 4a78fce7b7f0d35478e293596a45f6a7, type: 3}
+      propertyPath: placeholderText
+      value: 
+      objectReference: {fileID: 998502807}
     - target: {fileID: 9175518961390893125, guid: 4a78fce7b7f0d35478e293596a45f6a7, type: 3}
       propertyPath: inputPhraseThree
       value: Enter 5 verbs...

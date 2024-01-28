@@ -5,6 +5,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class FormToButtons : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class FormToButtons : MonoBehaviour
     private Transform buttonsParent;
     public GameObject speechBubbleParent;
     public TMP_Text speechBubbleText;
+    public TextMeshProUGUI placeholderText;
 
     public string[] promptText;
     public AudioClip[] promptAudio;
@@ -68,7 +70,8 @@ public class FormToButtons : MonoBehaviour
         if (words.Length != categoryLength) // If word input not right, rest form tell player
         {
             inputField.textComponent.text = "";
-            inputField.text = "Please enter " + categoryLength + " words seperated by a space";
+            inputField.text = "";
+            placeholderText.text = "Please enter " + categoryLength + " words seperated by a space";
             _inputText = "";
             return;
         }
@@ -83,14 +86,16 @@ public class FormToButtons : MonoBehaviour
         if(_formCounter == 0)
         {
             inputField.textComponent.text = "";
-            inputField.text = inputPhraseOne;
+            inputField.text = "";
+            placeholderText.text = inputPhraseOne;
             _inputText = "";
         }
         else if (_formCounter == 1) // Adjectives
         {
             //categoryLength = 5;
             inputField.textComponent.text = "";
-            inputField.text = inputPhraseTwo;
+            inputField.text = "";
+            placeholderText.text = inputPhraseTwo;
             _inputText = "";
 
         }
@@ -98,7 +103,8 @@ public class FormToButtons : MonoBehaviour
         {
             //categoryLength = 4;
             inputField.textComponent.text = "";
-            inputField.text = inputPhraseThree;
+            inputField.text = "";
+            placeholderText.text = inputPhraseThree;
             _inputText = "";
 
         }
@@ -148,7 +154,8 @@ public class FormToButtons : MonoBehaviour
     public void ResetForm()//called when asked to enter new prompts
     {
         inputField.textComponent.text = "";
-        inputField.text = inputPhraseOne;
+        inputField.text = "";
+        placeholderText.text = inputPhraseOne;
         _inputText = "";
 
         _formCounter = 0;
